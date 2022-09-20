@@ -22,13 +22,14 @@ spec:
         env:
         - name: ME_CONFIG_MONGODB_ADMINUSERNAME
           value: root
-        - name: ME_CONFIG_MONGODB_SERVER
-          value: mongodb-0.mongodb-headless
+        - name: ME_CONFIG_MONGODB_SERVER     #the value should point to the mongodb service to connect to it
+          value: mongodb-0.mongodb-headless  # [podName].[service]
         - name: ME_CONFIG_MONGODB_ADMINPASSWORD
           valueFrom: 
             secretKeyRef:
               name: mongodb
               key: mongodb-root-password
+              #we took the password from the secret that already creates with the helm chart for the data base >> kubectl get secret
 ---
 apiVersion: v1
 kind: Service
