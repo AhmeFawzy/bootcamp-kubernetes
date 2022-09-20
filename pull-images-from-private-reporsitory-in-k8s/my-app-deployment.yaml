@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: floki-ragner
   labels:
-    app: my-app
+    app: floki-ragner
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: floki-ragner
   template:
     metadata:
       labels:
-        app: my-app
+        app: floki-ragner
     spec:
       imagePullSecrets:
-      - name: my-registry-key
+      - name: swimming #this to access the docker registry with the secret we have done
       containers:
       - name: my-app
-        image: privat-repo/my-app:1.3
-        imagePullPolicy: Always
+        image: 409325200018.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+        imagePullPolicy: Always #this line to force docker to pull the image from the repository not to pull it from my laptop
         ports:
           - containerPort: 3000
