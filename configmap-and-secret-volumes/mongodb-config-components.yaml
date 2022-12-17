@@ -108,7 +108,7 @@ metadata:
 spec:
   selector:
     app: mongo-express
-  type: LoadBalancer  
+  type: LoadBalancer  //assigns the service an external ip address and so accepts external requests
   ports:
     - protocol: TCP
       port: 8081
