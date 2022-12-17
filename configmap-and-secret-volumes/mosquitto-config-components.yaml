@@ -17,7 +17,7 @@ metadata:
 type: Opaque
 data:
   secret.file: |
-    c29tZXN1cGVyc2VjcmV0IGZpbGUgY29udGVudHMgbm9ib2R5IHNob3VsZCBzZWU=
+    c29tZXN1cGVyc2VjcmV0IGZpbGUgY29udGVudHMgbm9ib2R5IHNob3VsZCBzZWU=   #base64 encoded of the mosquitto.conf file content
     
 ---
 apiVersion: apps/v1
