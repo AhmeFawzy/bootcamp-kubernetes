@@ -46,7 +46,7 @@ spec:
               mountPath: /mosquitto/config   #path in the file sysytem inside the container
             - name: mosquitto-secret
               mountPath: /mosquitto/secret  
-              readOnly: true
+              readOnly: true    #when you mount a client certificate you should enable this to not let the app to modify this cert
       volumes:                                      # we should mount these volumes inside the container, if you have number x of containers you should mount it x times
         - name: mosquitto-conf
           configMap:
