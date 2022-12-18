@@ -2,15 +2,18 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myapp-ingress
+  namespace: kubernetes-dashboard #same name as pod and service
 spec:
   rules:
-    - host: dashboard.com
-      http:
+    - host: dashboard.com   #should be valid domain address & map domain name to nodes's ip address, which is the entrypoint
+      http:  #this has nothing to do with part http in browsers. it means that the incoming request gets forwarded to internal service
         paths:
         - path: /
           pathType: Prefix
-            backend:
-              service:
-                name: kubernetes-dashboard
-                port:
-                  number: 80
+          backend:
+            service:
+              name: kubernetes-dashboard
+              port:
+                number: 80
+
+#this is ingress config to forward every request that comes to dashboard.com to internal service kubernetes-dashboard internal because its type is ClusterIp
