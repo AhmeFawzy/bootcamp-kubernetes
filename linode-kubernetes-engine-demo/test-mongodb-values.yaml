@@ -4,3 +4,6 @@ persistence:
     storageClass: "linode-block-storage"
 auth:
     rootPassword: secret-root-pwd
+
+    #we defined some values that we need to override the parameter of the betnami helm chart.. we choose the betnami helm chart for the stateful set app
+    # search for the betnami in the git hub and get the paramters that we defined here 
